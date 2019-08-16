@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700&subset=cyrillic');
+
+body {
+	color: #000;
+	font: 14px 'Roboto', sans-serif;
+	line-height: 1.15;
+	word-wrap: break-word;
+}
+
+h1,
+.h1 {
+	font: bold 28px 'ProximaNova', sans-serif;
+	text-transform: uppercase;
+	margin: 0 0 24px 0;
+	position: relative;
+}
+
+h2,
+.h2
+{
+	font-size: 24px;
+	font-weight: normal;
+	margin: 0 0 4px 0;
+	padding: 0;
+}
+
+h3,
+.h3
+{
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0 0 8px 0;
+	padding: 0;
+}
+
+p {
+	line-height: 1.5;
+	margin: 20px 0;
+}
+
+	p:first-child {
+		margin-top: 0;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+a {
+}
+
+.pseudo-link {
+	cursor: pointer;
+	text-decoration-style: dashed;
+}
+
+	a,
+	.pseudo-link {
+		color: #cd006a;
+		text-decoration-color: rgba(205,0,106,.3);
+		transition: text-decoration-color .3s, color .3s;
+	}
+
+	a:hover,
+	.pseudo-link:hover {
+		color: #cd006a;
+		text-decoration-color: rgba(205,0,106,0);
+	}
+
+	a:active {
+		background: none;
+	}
+
+	a * {
+		cursor: pointer;
+	}
+
+	a[href^="tel"] {
+		color: inherit;
+	}
+
+img {
+	border: none;
+}
+
+.clear {
+	clear: both;
+	float: none;
+	height: 0;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+	.clearfix:before,
+	.clearfix:after {
+		content: "";
+		display: table;
+		line-height: 0;
+	}
+
+	.clearfix:after {
+		clear: both;
+	}
+
+.em {
+	font-style: italic;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.ul-nomarker
+{
+	line-height: 1.5;
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+}
+
+	.ul-nomarker:first-child,
+	.ul-nomarker.first-child {
+		margin-top: 0;
+	}
+
+	.ul-nomarker:last-child,
+	.ul-nomarker.last-child {
+		margin-bottom: 0;
+	}
+
+	.ul-nomarker li {
+		margin: 0 0 7px 0;
+	}
+
+.ul-marker {
+	line-height: 1.5;
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+}
+
+	.ul-marker li {
+		margin: 0 0 7px 0;
+		padding: 0 0 0 28px;
+		position: relative;
+	}
+
+	.ul-marker li:before {
+		content: "—";
+		left: 0;
+		line-height: 0;
+		position: absolute;
+		top: 7px;
+	}
+
+.ol-numbers {
+	counter-reset: item;
+	line-height: 1.5;
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+}
+
+	.ol-numbers li
+	{
+		margin: 0 0 7px 0;
+		padding: 0 0 0 28px;
+		position: relative;
+	}
+
+	.ol-numbers li:before {
+		content: counters(item,".") ". ";
+		counter-increment: item;
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+
+.svg-icon {
+	display: inline-block;
+	fill-rule: evenodd;
+	vertical-align: middle;
+}
