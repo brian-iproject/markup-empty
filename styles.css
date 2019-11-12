@@ -119,6 +119,10 @@ img {
 	font-weight: bold;
 }
 
+.ta-c {
+	text-align: center;
+}
+
 .ul-nomarker
 {
 	line-height: 1.5;
@@ -228,3 +232,9 @@ img {
 			background-color: transparent;
 			color: #2B4254;
 		}
+
+@media (max-width: 767px) {
+	.ta-c--mobile {
+		text-align: center;
+	}
+}
