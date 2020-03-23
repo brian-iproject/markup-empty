@@ -1,3 +1,11 @@
+:root {
+	--wide-block-padding-top: 60px;
+	--wide-block-padding-bottom: 60px;
+	--wide-block-margin-top: 60px;
+	--wide-block-margin-bottom: 60px;
+	--screen-width: calc(100vw - 17px)px;
+}
+
 body {
 	margin: 0;
 	padding: 0;
