@@ -1,6 +1,8 @@
 .top-menu {
+	$block-name: &; // #{$block-name}__element
 
 	&__list {
+		@include list-reset;
 		display: flex;
 		font-size: var(--font-size--large);
 		font-weight: 500;

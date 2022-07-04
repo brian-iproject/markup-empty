@@ -2,11 +2,10 @@
 
 	$block-name: &; // #{$block-name}__element
 
+	@include list-reset;
 	align-items: center;
 	display: flex;
-	list-style: none;
 	margin: 0 -.5em;
-	padding: 0;
 
 	& li {
 		padding: 0 .5em;

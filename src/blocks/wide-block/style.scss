@@ -24,18 +24,4 @@
 		padding-bottom: 6.5rem;
 		padding-top: 6.5rem;
 	}
-
-	@media (min-width: $screen-xl) {
-		& h1:not(.-ta-c),
-		& .h1:not(.-ta-c),
-		& .subtitle:not(.-ta-c) {
-			max-width: 80%;
-		}
-
-		& [class*=block-width--] h1:not([class*=block-width--]),
-		& [class*=block-width--] .h1:not([class*=block-width--]),
-		& [class*=block-width--] .subtitle:not([class*=block-width--]) {
-			max-width: none;
-		}
-	}
 }

@@ -12,6 +12,8 @@
 	padding: .75em 1.25em;
 	position: relative;
 
+	@include blocks-margin-vertical;
+
 	&--info {
 		--hue: var(--hue-info);
 	}

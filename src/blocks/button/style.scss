@@ -127,25 +127,3 @@
 		}
 	}
 }
-
-.buttons-group {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1em;
-	justify-items: center;
-
-	* + & {
-		margin-top: var(--typo-margin-vertical);
-	}
-
-	@media (max-width: $screen-sm - 1) {
-		& .button {
-			flex-grow: 1;
-		}
-	}
-
-	&--center {
-		justify-items: center;
-		justify-content: center;
-	}
-}

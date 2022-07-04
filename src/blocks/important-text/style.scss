@@ -8,13 +8,7 @@
 	padding: 1.875em 3.125em 2.5em 3.125em;
 	overflow: hidden; // Сброс float при наличии иконки
 
-	&:not(:first-child) {
-		margin-top: var(--blocks-margin-vertical);
-	}
-
-	&:not(:last-child) {
-		margin-bottom: var(--blocks-margin-vertical);
-	}
+	@include blocks-margin-vertical;
 
 	&--large {
 		font-size: var(--font-size--large);
