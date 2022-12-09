@@ -1,56 +1,34 @@
+/* https://transfonter.org/ */
+
 @font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Light'), local('Ubuntu-Light'), url('../fonts/ubuntulight.woff2') format('woff2'), url('../fonts/ubuntulight.woff') format('woff'), url('../fonts/ubuntulight.ttf') format('truetype');
-	font-weight: 300;
+	font-family: 'Roboto';
+	src:  local('Roboto'), local('Roboto-Regular'),
+				url('../fonts/Roboto-Regular.woff2') format('woff2'),
+				url('../fonts/Roboto-Regular.woff') format('woff'),
+				url('../fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
+
 @font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Light Italic'), local('Ubuntu-LightItalic'), url('../fonts/ubuntulightitalic.woff2') format('woff2'), url('../fonts/ubuntulightitalic.woff') format('woff'), url('../fonts/ubuntulightitalic.ttf') format('truetype');
-	font-weight: 300;
-	font-style: italic;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu'), url('../fonts/ubuntu.woff2') format('woff2'), url('../fonts/ubuntu.woff') format('woff'), url('../fonts/ubuntu.ttf') format('truetype');
-	font-weight: 400;
+	font-family: 'Roboto';
+	src:  local('Roboto Bold'), local('Roboto-Bold'),
+				url('../fonts/Roboto-Bold.woff2') format('woff2'),
+				url('../fonts/Roboto-Bold.woff') format('woff'),
+				url('../fonts/Roboto-Bold.ttf') format('truetype');
+	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
 }
+
 @font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Italic'), local('Ubuntu-Italic'), url('../fonts/ubuntuitalic.woff2') format('woff2'), url('../fonts/ubuntuitalic.woff') format('woff'), url('../fonts/ubuntuitalic.ttf') format('truetype');
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Medium'), local('Ubuntu-Medium'), url('../fonts/ubuntumedium.woff2') format('woff2'), url('../fonts/ubuntumedium.woff') format('woff'), url('../fonts/ubuntumedium.ttf') format('truetype');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Medium Italic'), local('Ubuntu-MediumItalic'), url('../fonts/ubuntumediumitalic.woff2') format('woff2'), url('../fonts/ubuntumediumitalic.woff') format('woff'), url('../fonts/ubuntumediumitalic.ttf') format('truetype');
-	font-weight: 500;
-	font-style: italic;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url('../fonts/ubuntubold.woff2') format('woff2'), url('../fonts/ubuntubold.woff') format('woff'), url('../fonts/ubuntubold.ttf') format('truetype');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Ubuntu';
-	src: local('Ubuntu Bold Italic'), local('Ubuntu-BoldItalic'), url('../fonts/ubuntubolditalic.woff2') format('woff2'), url('../fonts/ubuntubolditalic.woff') format('woff'), url('../fonts/ubuntubolditalic.ttf') format('truetype');
-	font-weight: 700;
+	font-family: 'Roboto';
+	src:  local('Roboto Italic'), local('Roboto-Italic'),
+				url('../fonts/Roboto-Italic.woff2') format('woff2'),
+				url('../fonts/Roboto-Italic.woff') format('woff'),
+				url('../fonts/Roboto-Italic.ttf') format('truetype');
+	font-weight: normal;
 	font-style: italic;
 	font-display: swap;
 }

@@ -1,0 +1,38 @@
+mixin field-text(props)
+
+	//- Принимает:
+	//-   props {
+	//-     title: ''         {string} - текст с названием (выводится над полем)
+	//-     isTextarea: 			{bool}   - флаг input/textarea
+	//-     helpText: ''      {string} - пояснение под полем
+	//-     mods: ''          {array}  - модификаторы блока
+	//-     val: ''           {string} - текст в поле
+	//-     svg: ''           {string} - svg-иконка
+	//-     attrs:            {object} - любые атрибуты для input/textarea
+	//-       type:           {string}
+	//-       placeholder:    {string}
+
+	if typeof(props) === 'undefined'
+		- props = {};
+
+	- let allClass = 'field-text';
+		if typeof(props.mods) !== 'undefined' && props.mods
+			each mods in props.mods
+				- allClass += ' field-text--' + mods;
+	label(class = allClass)&attributes(attributes)
+		if typeof(props.title) !== 'undefined' && props.title
+			span.field-text__name!= props.title
+
+		span.field-text__input-wrap
+			if typeof(props.svg) !== 'undefined' && props.svg
+				!= props.svg
+			if typeof(props.isTextarea) !== 'undefined' && props.isTextarea
+				textarea.field-text__input&attributes(props.attrs)
+			else
+				if typeof(props.attrs) !== 'undefined' && props.attrs.type
+					input.field-text__input(type=props.attrs.type, value=props.val)&attributes(props.attrs)
+				else
+					input.field-text__input(type="text", value=props.val)&attributes(props.attrs)
+
+		if (props.helpText)
+			span.field-text__help-text!= props.helpText

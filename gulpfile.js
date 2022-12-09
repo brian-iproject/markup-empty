@@ -153,10 +153,8 @@ function compileJs() {
 function compileLibsJs() {
     return multipipe(
         src([
-            'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
             'node_modules/flickity/dist/flickity.pkgd.min.js',
             'node_modules/flickity-fade/flickity-fade.js',
-            'node_modules/wow.js/dist/wow.min.js'
         ]),
         concat('libs.min.js'),
         dest('build/js/'),

@@ -1,0 +1,95 @@
+@mixin button {
+	align-items: center;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: inherit;
+	cursor: pointer;
+	display: inline-flex;
+	justify-content: center;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+	transition: var(--transition-time);
+	//line-height: 1;
+	line-height: var(--line-height);
+	font-weight: 700;
+
+	background-color: var(--button-bg, var(--color-primary));
+	border: 1px solid var(--button-border, var(--color-primary));
+	color: var(--button-color, var(--color-white));
+}
+
+@mixin button--primary {
+	--button-bg: var(--color-primary);
+	--button-border: var(--color-primary);
+	--button-color: var(--color-white);
+}
+
+@mixin button--primary-dark {
+	--button-bg: var(--color-primary--dark);
+	--button-border: var(--color-primary--dark);
+	--button-color: var(--color-white);
+}
+
+@mixin button--primary-light {
+	--button-bg: var(--color-primary--light);
+	--button-border: var(--color-primary--dark);
+	--button-color: var(--color-primary--dark);
+}
+
+@mixin button--contour {
+	--button-bg: transparent;
+	--button-border: var(--color-primary);
+	--button-color: var(--color-primary);
+}
+
+@mixin button--small {
+	//padding: .667em 1.25em;
+	padding: .417em 1.25em;
+	border-radius: var(--border-radius--sm);
+	font-size: var(--font-size--xs);
+
+	&:has(svg:only-child) {
+		padding: 4px;
+		border-radius: var(--border-radius--xs);
+	}
+
+	& svg {
+		@include icon--sm;
+	}
+}
+
+@mixin button--medium {
+	//padding: 1em 1.42em;
+	padding: .75em 1.25em;
+	border-radius: var(--border-radius--md);
+	font-size: var(--font-size--md);
+
+	&:has(svg:only-child) {
+		padding: 4px;
+		border-radius: var(--border-radius--sm);
+	}
+
+	& svg {
+		@include icon--md;
+	}
+}
+
+@mixin button--large {
+	//padding: 1.625em 3.125em;
+	padding: 1.375em 3.125em;
+	border-radius: var(--border-radius);
+	font-size: var(--font-size--md);
+
+	&:has(svg:only-child) {
+		padding: 9px;
+		border-radius: var(--border-radius--md);
+	}
+
+	& svg {
+		@include icon--lg;
+	}
+}

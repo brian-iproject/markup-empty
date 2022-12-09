@@ -1,95 +1,80 @@
 :root {
   /* Базовые Цвета */
-  --color-primary--light:   rgb(224, 0, 0);     // #e00000
-  --color-primary:          rgb(204, 0, 0);     // #cc0000
-  --color-primary--dark:    rgb(128, 0, 0);     // #800000
+  /* TODO: Изучить возможность использования hsl */
+  --color-primary--light:   rgb(230, 244, 246); // #E6F4F6
+  --color-primary:          rgb(1, 124, 144);   // #017C90
+  --color-primary--dark:    rgb(3, 108, 125);   // #036C7D
 
   --color-white:            rgb(255, 255, 255); // #ffffff
-  --color-gray--lighter:    rgb(247, 247, 248); // #f7f7f8
-  --color-gray--lighten:    rgb(238, 238, 239); // #eeeeef
-  --color-gray--light:      rgb(196, 196, 196); // #c4c4c4
-  --color-gray:             rgb(166, 166, 166); // #a6a6a6
-  --color-gray--dark:       rgb(117, 117, 117); // #757575
-  --color-gray--darken:     rgb(43, 43, 43);    // #2b2b2b
-  --color-gray--darker:     rgb(32, 32, 32);    // #202020
+  --color-gray--light:      rgb(243, 243, 243); // #f3f3f3
+  --color-gray:             rgb(217, 217, 217); // #d9d9d9
+  --color-gray--dark:       rgb(90, 90, 90);    // #5a5a5a
+  --color-gray--darker:     rgb(21, 21, 21);    // #151515
   --color-black:            rgb(0, 0, 0);       // #000000
 
-  --hue-info: 211;
-  --hue-success: 134;
-  --hue-error: 354;
-  --hue-warning: 45;
+  --color-cyan:             rgb(120, 223, 240); // #78DFF0
 
-  --color-success:          rgb(92, 183, 92);
-  --color-danger:           rgb(216, 84, 79);
-  --color-danger--light:    rgba(216, 84, 79, .65);
-  --color-warning:          rgb(239, 172, 77);
+  --hue-info:               211;
+  --hue-success:            134;
+  --hue-error:              354;
+  --hue-warning:            45;
 
   /* Семантические цвета */
+  --heading-color:          var(--color-gray--darker);
   --text-color:             var(--color-gray--darker);
   --text-color-muted:       var(--color-gray);
 
   --link-color:             var(--color-primary);
-  --link-color--hover:      var(--color-primary--light);
+  --link-color--hover:      var(--color-primary);
+  --focus-color:            var(--color-cyan);
 
   /* Базовая типографика */
-  --font-size--tiny:        10px;
-  --font-size--small:       12px;
-  --font-size--medium:      13px;
+  --font-family-primary:    'Roboto', Arial, sans-serif;
+
+  --font-size-h1:           24px;
+  --font-size-h2:           20px;
+  --font-size-h3:           16px;
+
+  --font-size--xxs:         9px;
+  --font-size--xs:          12px;
+  --font-size--sm:          12px;
+  --font-size--md:          14px;
   --font-size:              14px;
-  --font-size--large:       16px;
-  --font-size--huge:        18px;
-  --font-size--xxx-huge:    38px;
+  --font-size--lg:          16px;
 
-  --font-size-h1:           30px;
-  --font-size-h2:           30px;
-  --font-size-h3:           24px;
-  --font-size-h4:           18px;
-  --font-size-h5:           16px;
-  --font-size-h6:           14px;
-
-  --font-family-primary:    'Ubuntu', sans-serif;
-
-  --line-height:            1.625;
-
-  --typo-margin-vertical:   1em;
-
-  --blocks-margin-vertical:  2.5em;
+  --line-height:            1.5;
 
   /* Сетка */
-  --grid-gutter-x:          15px;
-  --grid-gutter-y:          15px;
+  --grid-gutter:            20px;
+
+  /* Отступы */
+  --offset-typo:            1em;
+  --offset-block:           30px;
 
   /* Разное */
   --transition-time:        .3s;
   --animate-duration:       var(--transition-time);
   --shadow:                 0 15px 15px rgba(14, 16, 20, .15);
-  --shadow--light:          0 15px 15px rgba(14, 16, 20, .05);
 
-  @media (min-width: 768px) {
+  --border-radius--xs:      5px;
+  --border-radius--sm:      7px;
+  --border-radius--md:      10px;
+  --border-radius:          15px;
+
+  @media (min-width: $screen-md) {
     /* Базовая типографика */
-    --font-size--tiny:      10px;
-    --font-size--small:     12px;
-    --font-size--medium:    14px;
-    --font-size:            16px;
-    --font-size--large:     18px;
-    --font-size--huge:      20px;
-    --font-size--xxx-huge:  68px;
+    --font-size-h1:         52px;
+    --font-size-h2:         32px;
+    --font-size-h3:         20px;
 
-    --font-size-h1:         44px;
-    --font-size-h2:         30px;
-    --font-size-h3:         24px;
-    --font-size-h4:         18px;
-    --font-size-h5:         16px;
-    --font-size-h6:         14px;
-  }
+    --font-size--xxs:       9px;
+    --font-size--xs:        12px;
+    --font-size--sm:        14px;
+    --font-size--md:        16px;
+    --font-size:            20px;
+    --font-size--lg:        22px;
 
-  @media (min-width: 992px) {
-    /* Базовая типографика */
-    --font-size-h1:         54px;
-    --font-size-h2:         30px;
-    --font-size-h3:         24px;
-    --font-size-h4:         18px;
-    --font-size-h5:         16px;
-    --font-size-h6:         14px;
+    /* Отступы */
+    --offset-block:           50px;
   }
 }

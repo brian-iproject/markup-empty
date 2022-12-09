@@ -2,6 +2,15 @@
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-text-size-adjust: 100%; // stylelint-disable-line
 
+	overflow-x: hidden;
+	font-size: var(--font-size);
+
+	@media (max-width: $screen-md - 1 ) {
+		&.-no-scroll {
+			overflow: hidden;
+		}
+	}
+
 	&__inner {
 		box-sizing: border-box;
 		display: flex;
@@ -17,45 +26,21 @@
 	}
 
 	&__header {
-		//position: sticky;
-		//top: 0;
+		position: sticky;
+		top: 0;
 		z-index: 15;
 	}
 
-	&__nav {
-		width: 100%;
-		z-index: 10;
-
-		@media (max-width: $screen-lg - 1) {
-			height: 100vh;
-			overflow: auto;
-			position: absolute;
-			transform: translateX(-100%);
-			transition: var(--transition-time);
-
-			&.-is-active {
-				transform: translateX(0);
-			}
-		}
-
-		@media (min-width: $screen-lg) {
-			display: block;
-		}
-	}
-
 	&__breadcrumb {
-		height: 0;
-
-		&:not(:empty) .breadcrumb {
-			padding-top: 3em;
-			position: relative;
-			z-index: 5;
-		}
+		margin-top: calc(var(--grid-gutter) * 1.5);
 	}
 
 	&__content {
 		flex-grow: 1;
 		flex-shrink: 0;
+
+		padding-top: calc(var(--grid-gutter) * 1.5);
+		padding-bottom: calc(var(--grid-gutter) * 5);
 	}
 }
 
@@ -66,73 +51,38 @@ body {
 	margin: 0;
 	padding: 0;
 	word-wrap: break-word;
-
-	@media (max-width: $screen-lg - 1 ) {
-
-		&.-no-scroll {
-			overflow: hidden;
-		}
-	}
 }
 
 h1, .h1 {
 	font-size: var(--font-size-h1);
-	font-weight: 500;
-	line-height: 1.2;
-	margin: 0 0 .75em 0;
-	text-transform: uppercase;
+	color: var(--heading-color);
+	font-weight: 700;
+	line-height: 1.154;
+	margin: 0 0 .578em 0;
 }
 
 h2, .h2 {
 	font-size: var(--font-size-h2);
-	font-weight: 500;
-	line-height: 1.2;
-	margin: 0 0 .75em 0;
+	color: var(--heading-color);
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 .625em 0;
 	padding: 0;
 }
 
 h3, .h3 {
 	font-size: var(--font-size-h3);
-	font-weight: 500;
-	line-height: 1.2;
-	margin: 0 0 .75em 0;
-	padding: 0;
-}
-
-h4, .h4 {
-	font-size: var(--font-size-h4);
-	font-weight: 500;
-	line-height: 1.2;
-	margin: 0 0 .75em 0;
-	padding: 0;
-}
-
-h5, .h5 {
-	font-size: var(--font-size-h5);
-	font-weight: 500;
-	margin: 0 0 .75em 0;
-	padding: 0;
-}
-
-h6, .h6 {
-	font-size: var(--font-size-h6);
-	font-weight: 500;
-	margin: 0 0 .75em 0;
+	color: var(--heading-color);
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 1em 0;
 	padding: 0;
 }
 
 h1:not(:first-child), .h1:not(:first-child),
 h2:not(:first-child), .h2:not(:first-child),
-h3:not(:first-child), .h3:not(:first-child),
-h4:not(:first-child), .h4:not(:first-child),
-h5:not(:first-child), .h5:not(:first-child),
-h6:not(:first-child), .h6:not(:first-child) {
+h3:not(:first-child), .h3:not(:first-child) {
 	margin-top: 1em;
-}
-
-.subtitle {
-	font-size: var(--font-size--large);
-	margin-top: -1em;
 }
 
 a {
@@ -140,8 +90,10 @@ a {
   color: var(--link-color);
 	text-decoration-color: currentColor;
 	transition: text-decoration-color .3s, color .3s;
+	text-decoration-thickness: 1px;
 
   &:hover,
+  &:active,
   &:focus {
     color: var(--link-color--hover);
 		text-decoration-color: transparent;
@@ -159,10 +111,13 @@ a {
 }
 
 .pseudo-link {
-	color: #5c90fe;
+	color: var(--link-color);
 	cursor: pointer;
-	text-decoration-color: rgba(92,144,254,0);
+	text-decoration-color: currentColor;
+	text-decoration-line: underline;
 	text-decoration-style: dashed;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
 	transition: text-decoration-color .3s, color .3s;
 
 	&:hover,
@@ -182,13 +137,13 @@ p {
 	margin-bottom: 0;
 	margin-top: 0;
 
-	* + & {
-		margin-top: var(--typo-margin-vertical);
-	}
+	@include offset(typo);
 }
 
 svg {
 	fill: currentColor;
+	stroke: currentColor;
+	stroke-width: 0;
 	fill-rule: evenodd;
 
 	a &,
@@ -212,16 +167,13 @@ hr {
 	border-top: 1px solid var(--color-gray);
 	box-sizing: content-box; // Проблема Firefox
 	height: 0;               // Проблема Firefox
-	margin-bottom: calc(var(--typo-margin-vertical) * 2);
-	margin-top: calc(var(--typo-margin-vertical) * 2);
 	overflow: visible;       // Проблема Edge и IE
+
+	@include offset(block);
 }
 
-[data-hidden-captcha] [name=CAPTCHA_HIDDEN],
-[data-hidden-captcha] [name=MIDDLE_NAME] {
-	left: -999999999px;
-	position: absolute;
-	z-index: -1;
+address {
+	font-style: normal;
 }
 
 .clear {

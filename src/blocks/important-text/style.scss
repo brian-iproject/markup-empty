@@ -8,7 +8,7 @@
 	padding: 1.875em 3.125em 2.5em 3.125em;
 	overflow: hidden; // Сброс float при наличии иконки
 
-	@include blocks-margin-vertical;
+	@include offset(block);
 
 	&--large {
 		font-size: var(--font-size--large);

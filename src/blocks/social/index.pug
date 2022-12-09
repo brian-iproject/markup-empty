@@ -1,0 +1,35 @@
+mixin social(items, props)
+
+  //- Принимает:
+  //-		items [							{array}
+  //-     {
+  //-       link: ''        {string} - ссылка
+  //-       svg: ''         {string} - id svg-иконки в спрайте
+  //-     },
+  //-     {
+  //-       link: ''        {string} - ссылка
+  //-       svg: ''         {string} - id svg-иконки в спрайте
+  //-     }
+  //-   props {							{object}
+  //-     title: ''         {string} - заголовок блока
+  //-     mods: ''          {array}  - модификаторы блока
+
+
+  if typeof(items) === 'undefined'
+    - items = [];
+
+  if typeof (props) === 'undefined'
+    - props = {};
+
+  - let allCss = 'social';
+    if typeof(props.mods) !== 'undefined' && props.mods
+        each mods in props.mods
+          - allCss += ' social--' + mods;
+
+  div(class=allCss)&attributes(attributes)
+    if typeof(props.title) !== 'undefined' && props.title
+      .h3!= props.title
+    ul
+      each item in items
+        li: a(href=item.link ? item.link : '#')
+          +svg-sprite(item.svg)

@@ -5,11 +5,11 @@
 			'title': 'Главная',
 		},
 		{
-			'link': '/prodvizhenie-sajtov/',
-			'title': 'Продвижение сайтов',
+			'link': '/section/',
+			'title': 'Раздел',
 		},
 		{
-			'title': 'SEO-аудит сайта',
+			'title': 'Страница',
 		}
 	]
 
@@ -20,9 +20,11 @@
 				if (item.link)
 					a.breadcrumb__link(href=item.link title=item.title itemprop="item")
 						span(itemprop="name") !{item.title}
+						svg(class="icon")
+							use(href="#arrow-down")
 					meta(itemprop="position" content=i + 1)
 				else
-					span.breadcrumb__link(title=item.title itemprop="item")
+					span(title=item.title itemprop="item")
 						span(itemprop="name") !{item.title}
 					meta(itemprop="position" content=i + 1)
 

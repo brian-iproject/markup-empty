@@ -7,13 +7,7 @@
 	width: 100%;
 	table-layout: fixed;
 
-	&:not(:first-child) {
-		margin-top: var(--blocks-margin-vertical);
-	}
-
-	&:not(:last-child) {
-		margin-bottom: var(--blocks-margin-vertical);
-	}
+	@include offset(block);
 
 	& th,
 	& td {

@@ -1,0 +1,33 @@
+.icon {
+	$block-name: &; // #{$block-name}__element
+
+	transition: var(--transition-time);
+
+	@include icon--sm;
+
+	&--md {
+		@include icon--sm;
+	}
+
+	&--lg {
+		@include icon--md;
+	}
+
+	&--xl {
+		@include icon--md;
+	}
+
+	@media (min-width: $screen-md) {
+		&--md {
+			@include icon--md;
+		}
+
+		&--lg {
+			@include icon--lg;
+		}
+
+		&--xl {
+			@include icon--xl;
+		}
+	}
+}

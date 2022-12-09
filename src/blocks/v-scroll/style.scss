@@ -3,7 +3,7 @@
 
 	position: relative;
 
-	@include blocks-margin-vertical;
+	@include offset(block);
 
 	@media (max-width: $screen-md - 1) {
 		&__container {

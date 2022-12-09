@@ -1,36 +1,56 @@
+@use "sass:selector";
+
+/* Переменные */
 @import '_variables';
 @import '_css-variables';
 
+/* Модификаторы и миксины */
 @import '_modifiers';
 @import '_mixins';
+
+/* Шрифты */
 @import '_fonts';
 
+/* Сетка шаблона */
 @import '../blocks/page/style';
-@import '../blocks/buttons-group/style';
-@import '../blocks/button/style';
-@import '../blocks/list/style';
 @import '../blocks/page-container/style';
 @import '../blocks/page-header/style';
 @import '../blocks/page-nav/style';
 @import '../blocks/page-content/style';
 @import '../blocks/page-footer/style';
-@import '../blocks/header-search/style';
 @import '../blocks/wide-block/style';
-@import '../blocks/top-menu/style';
-@import '../blocks/main-menu/style';
+
+/* Шаблон */
 @import '../blocks/header-burger/style';
-@import '../blocks/main-slider/style';
+
+/* Навигация */
+@import '../blocks/breadcrumb/style';
+@import '../blocks/main-menu/style';
+
+/* Формы, кнопки */
 @import '../blocks/field-text/style';
 @import '../blocks/field-checkbox/style';
-@import '../blocks/moving-placeholder/style';
-@import '../blocks/alert/style';
+@import '../blocks/button-group/style';
+@import '../blocks/button/style';
+
+/* Типография и контент */
+@import '../blocks/icon/style';
+@import '../blocks/list/style';
 @import '../blocks/important-text/style';
-@import '../blocks/breadcrumb/style';
 @import '../blocks/image/style';
 @import '../blocks/table/style';
+@import '../blocks/text-columns/style';
 
+/* Вспомогательные элементы */
+@import '../blocks/moving-placeholder/style';
+@import '../blocks/alert/style';
 @import '../blocks/grid/style';
-@import '../blocks/v-space/style';
 @import '../blocks/h-scroll/style';
+@import '../blocks/v-scroll/style';
 
+/* Компоненты */
+@import '../blocks/social/style';
+@import '../blocks/faq/style';
+
+/* Ui-Kit */
 @import '../blocks/ui-kit/style';

@@ -1,3 +1,4 @@
+/* TODO: сделать на промисы */
 class SvgLoad {
     constructor(svgPath) {
         this.ajax = new XMLHttpRequest();

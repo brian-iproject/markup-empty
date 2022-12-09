@@ -1,0 +1,34 @@
+.social {
+
+	$block-name: &; // #{$block-name}__element
+
+	@include offset(block);
+
+	& ul {
+		@include list-reset;
+
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: calc(var(--grid-gutter) * .75);
+	}
+
+	& li {
+
+		& a {
+			display: block;
+
+			& svg {
+				display: block;
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+	}
+
+	@media (min-width: $screen-md) {
+		& ul {
+			gap: calc(var(--grid-gutter) * 1.5);
+		}
+	}
+}

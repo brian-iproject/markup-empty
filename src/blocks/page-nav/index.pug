@@ -9,13 +9,9 @@ mixin page-nav(mods)
 
 	.page-nav(class=allMods)
 		.page-container.page-nav__inner
-			.page-nav__menu
-				include ../main-menu/index
-			.page-nav__search
-				include ../header-search/index
-			.page-nav__contacts
-
-				.page-nav__order
-					button.button.button--primary Онлайн-заявка
-				.page-nav__socials
-					include ../socials/index
+			+menu(mainMenuData, {
+				baseCss: 'main-menu',
+				submenuWrap: true,
+				button: true,
+				arrow: true
+			})

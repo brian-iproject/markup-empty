@@ -1,39 +1,80 @@
+@use "sass:selector";
+
+@mixin field--medium {
+	--padding-v: .75em;
+	--padding-h: 1.875em;
+	--border-radius: var(--border-radius--sm);
+}
+
+@mixin field--large {
+	--padding-v: 1.375em;
+	--padding-h: 1.875em;
+	--border-radius: var(--border-radius);
+}
+
 .field-text {
+	$block-name: &; // #{$block-name}__element
 
-	$block-name:                    &; // #{$block-name}__element
+	display: block;
+	font-size: var(--font-size--md);
 
-	&__input-wrap {}
+	@include offset('typo');
+	@include field--medium();
+
+	&--medium { @include field--medium() }
+
+	&--large { @include field--large()	}
+
+	&__name {
+		display: block;
+		margin-bottom: .25em;
+	}
+
+	&__input-wrap {
+		display: block;
+		position: relative;
+	}
+
+	& svg {
+		position: absolute;
+		height: auto;
+		width: auto;
+		left: var(--padding-h);
+		// Расчёт верхнего отступа с учетом line-height и font-size
+		top: calc(var(--padding-v) + (var(--line-height) * 1em - 1em) / 2);
+		max-width: 1em;
+		max-height: 1em;
+	}
+
+	& svg + &__input {
+		// Горизонтальный padding + max-width иконки + отступ между иконкой и текстом
+		padding-left: calc(var(--padding-h) + 1em + .625em);
+	}
 
 	&__input {
-		background: var(--color-white);
+		background: var(--color-gray--light);
 		border: none;
-		border-radius: .4em;
+		border-radius: var(--border-radius);
 		color: var(--color-gray--dark);
-		font-size: inherit;
 		max-width: 100%;
 		outline: none;
-		padding: 1em;
 		vertical-align: middle;
 		width: 100%;
+		line-height: var(--line-height);
+		font-size: inherit;
 
-		#{$block-name}--transparent & {
-			background-color: transparent;
-			border-bottom: 1px solid var(--field-text-border-color, var(--color-white));
-			border-radius: 0;
-			color: var(--field-text-color, var(--color-white));
+		padding: var(--padding-v, .75em) var(--padding-h, 1.25em);
+		border-radius: var(--border-radius, var(--border-radius--sm));
+
+		&:focus::placeholder {
+			transition: var(--transition-time);
+			color: var(--color-gray);
 		}
 
-		@at-root #{$block-name} .moving-placeholder__input {
-			padding: 1.25rem 1rem 0.75rem 1rem;
-		}
-
-		& + .moving-placeholder__name {
-			color: var(--color-gray--dark);
-			left: 1rem;
-		}
-
-		#{$block-name}--transparent & + .moving-placeholder__name {
-			color: inherit;
+		@at-root
+		#{selector.unify(&, textarea)} {
+			min-height: calc(var(--padding-v) * 2 + var(--line-height) * 1em);
+			resize: none;
 		}
 	}
 
@@ -42,7 +83,6 @@
 	}
 
 	&--error {
-
 		#{$block-name}__name,
 		#{$block-name}__input,
 		#{$block-name}__help-text {

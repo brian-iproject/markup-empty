@@ -3,7 +3,7 @@
 
 	position: relative;
 
-	@include blocks-margin-vertical;
+	@include offset(block);
 
 	&__container {
 		max-width: 100%;
@@ -18,7 +18,7 @@
 			content: '🡐 Используйте горизонтальную прокрутку 🡒';
 			display: block;
 			font-size: var(--font-size--small);
-			margin: var(--typo-margin-vertical) 0;
+			margin: var(--offset-typo) 0;
 			text-align: center;
 		}
 

@@ -1,7 +1,7 @@
 class MobileMenuSelectors {
     constructor(selector, mobileWrapperSelector) {
         this.selector = selector;
-        this.$menu = document.querySelector(selector);
+        this.$menu = document.querySelectorAll(selector);
         this.$mobileWrapper = document.querySelector(mobileWrapperSelector);
         this.$burger = document.querySelector(`[data-burger='${mobileWrapperSelector}']`);
     }
@@ -26,18 +26,18 @@ class MobileMenu extends MobileMenuSelectors{
     }
 
     eventBurger = (e) => {
-        const $body = document.querySelector('body');
+        const $html = document.querySelector('html');
         const burger = e.target.closest('[data-burger]');
 
         if (!burger) return false;
 
         burger.classList.toggle('-is-active');
         this.$mobileWrapper.classList.toggle('-is-active');
-        $body.classList.toggle('-no-scroll');
+        $html.classList.toggle('-no-scroll');
     }
 
     init = () => {
-        this.$menu.addEventListener('click', this.eventClick);
+        this.$menu.forEach(menu => menu.addEventListener('click', this.eventClick));
 
         if (this.$mobileWrapper)
             this.$burger.addEventListener('click', this.eventBurger);

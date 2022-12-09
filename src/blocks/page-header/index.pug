@@ -8,20 +8,21 @@ mixin page-header(mods)
     }
 
   header.page-header(class=allMods)
-    .page-container.page-header__inner
+    .page-header__inner.page-header__inner--mobile.page-container
       .page-header__logo
-          img(src="images/logo.svg", width="190", height="37" alt="")
-      .page-header__slogan
-        | Помогаем бизнесу<br>зарабатывать больше
-      .page-header__top-menu
-        include ../top-menu/index
-      .page-header__phones
-
-      .page-header__order
-        button.button.button--primary Онлайн-заявка
-      .page-header__search
-        include ../header-search/index
+        +logo()
       .page-header__burger
         include ../header-burger/index
-
-    +page-nav('page__nav')
+      .page-header__phone
+        +phone('+7 (777) 777-77-77')
+      .page-header__order
+        +button({
+          title: 'Быстрый подбор теста',
+          mods: ['primary', 'medium-xl', 'medium-xs'],
+        })
+      .page-header__auth
+        +button({
+          title: 'Войти',
+          mods: ['text'],
+          svg: '<svg class="icon"><use href="#enter"></use></svg>'
+        })

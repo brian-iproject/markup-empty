@@ -8,3 +8,18 @@ mixin page-footer(mods)
     }
 
   footer.page-footer(class=allMods)
+    .page-footer__inner.page-container
+      +social(
+        social,
+        {
+          title: 'Мы в соцсетях:'
+        }
+      )
+      address.page-footer__contacts
+        p: +phone('+ 7 (777) 777-77-77')
+        p: +email('info@site.ru')
+        p Пн-Пт с 10:00 до 18:00
+
+      .page-footer__logo
+        +logo()
+      .page-footer__copy-c © 1997-2021<br>Company

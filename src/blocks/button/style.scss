@@ -1,56 +1,14 @@
-@mixin button {
-	align-items: center;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	background-color: transparent;
-	border: 1px solid transparent;
-	border-radius: .5em;
-	color: inherit;
-	cursor: pointer;
-	display: inline-flex;
-	justify-content: center;
-	margin: 0;
-	padding: .85em 2em .95em 2em;
-	text-align: center;
-	text-decoration: none;
-	transition: var(--transition-time);
-	font-weight: 500;
-	font-size: var(--font-size);
-}
-
-@mixin button--primary {
-	background-color: var(--color-primary);
-	border: 1px solid var(--color-primary);
-	color: var(--color-white);
-}
-
-@mixin button--primary-light {
-	background-color: var(--color-primary--light);
-	border-color: var(--color-primary--light);
-	color: var(--color-white);
-}
-
-@mixin button--gray-lighten {
-	background-color: var(--color-gray--lighten);
-	border-color: var(--color-gray--lighten);
-	color: var(--color-gray--dark);
-}
-
-@mixin button--white {
-	background-color: var(--color-white);
-	border-color: var(--color-white);
-	color: var(--color-black);
-}
-
-@mixin button--gray--dark {
-	background-color: var(--color-gray--dark);
-	border-color: var(--color-gray--dark);
-	color: var(--color-white);
-}
-
+@use "sass:selector";
 .button {
+	$block-name: &; // #{$block-name}__element
+
 	@include button;
+	@include button--small;
+	@include focus-outline;
+
+	&:has(svg) {
+		gap: .5em;
+	}
 
 	&--wide {
 		width: 100%;
@@ -61,37 +19,12 @@
 
 		&:hover,
 		&:active {
-			@include button--primary-light;
-			box-shadow: 0 7px 20px rgba(204, 0, 0, .35), 0 20px 35px rgba(204, 0, 0, .15);
-			color: var(--color-white);
+			@include button--primary-dark;
 		}
 	}
 
-	&--green {
-		background-color: #009628;
-		border-color: #009628;
-
-		&:hover,
-		&:active {
-			background-color: #15a53c;
-			border-color: #15a53c;
-			box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.15);
-			color: var(--color-white);
-		}
-	}
-
-	&--gray-lighten {
-		@include button--gray-lighten;
-
-		&:hover,
-		&:active {
-			@include button--white;
-			box-shadow: 0px 10px 35px rgba(0, 0, 0, .15);
-		}
-	}
-
-	&--gray-dark {
-		@include button--gray--dark;
+	&--contour {
+		@include button--contour;
 
 		&:hover,
 		&:active {
@@ -99,31 +32,35 @@
 		}
 	}
 
-	&--not-fill {
-		background-color: transparent;
-		border-color: var(--color-gray--dark);
-		color: inherit;
-
+	@at-root
+	#{selector.unify(&, #{$block-name}--text)} {
+		&,
 		&:hover,
 		&:active {
-			@include button--white;
-			box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.15);
+			--button-bg: transparent;
+			--button-border: transparent;
+			--button-color: var(--color-primary);
+			padding: 0;
 		}
 	}
 
-	&--tab {
-		@include button--gray-lighten;
-		font-size: var(--font-size--medium);
-		padding: .9em 1.5em 1em 1.5em;
-
-		&:hover,
-		&:active {
-			@include button--white;
-			box-shadow: 0px 10px 35px rgba(0, 0, 0, .15);
+	@media (max-width: $screen-md - 1) {
+		&--medium {
+			@include button--small;
 		}
 
-		&.-is-active {
-			@include button--primary;
+		&--large {
+			@include button--medium;
+		}
+	}
+
+	@media (min-width: $screen-md) {
+		&--medium {
+			@include button--medium;
+		}
+
+		&--large {
+			@include button--large;
 		}
 	}
 }

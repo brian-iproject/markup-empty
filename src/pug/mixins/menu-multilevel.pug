@@ -1,39 +1,61 @@
-mixin menu(data, blockName)
-  nav(class=blockName)&attributes(attributes)
-    +menu-list(data, blockName)
+mixin menu(data, props)
 
-mixin menu-list(data, blockName)
-  ul(class=blockName + '__list', class=blockName + '__list--lvl' + data.level)&attributes(attributes)
-    each item, i in data.items
+  //- Принимает:
+  //-   data: [
+  //-     {
+  //-       title: ''       {string} - пункт меню
+  //-       url: ''         {string} - ссылка
+  //-       submenu: ''     {array} - пункты подразделов, массив data
+  //-     },
+  //-     {
+  //-       title: ''       {string} - текст
+  //-       url: ''         {string} - ссылка
+  //-     }
+  //-   ]
+  //-   props {
+  //-     baseCss: ''       {string}  - css-class
+  //-     submenuWrap: ''   {bool}    - оборачивать подуровни в div
+  //-     button: ''        {bool}    - кнопка раскрытия мобильного меню
+  //-     arrow: ''         {bool}    - иконка стрелки выпадающего меню.
+  //-                                   в спрайте должна быть иконка с id arrow-down
+  //-     maxLevel: ''      {number}  - максимальный уровень вложенности
+
+  if typeof(data) !== 'undefined' && data
+  - let allCss = props.baseCss;
+    if typeof (props.mods) !== 'undefined' && props.mods
+        each mods in props.mods
+          - allCss += ' ' + props.baseCss + '--' + mods;
+    nav(class=allCss)&attributes(attributes)
+      +menu-list(data, props, 1)
+
+mixin menu-list(data, props, level)
+  ul(class=props.baseCss + '__list', class=props.baseCss + '__list--lvl' + level)
+    each item, i in data
       -
-        let cssClassItem = blockName + '__item ' + blockName + '__item--lvl' + data.level;
-        index ++;
+        let cssClassItem = props.baseCss + '__item ' + props.baseCss + '__item--lvl' + level;
+
+        if (typeof(props.maxLevel) !== 'undefined' && props.maxLevel)
+          if (props.maxLevel <= level + 1)
+            item.submenu = '';
+
+
         if (item.submenu)
-          cssClassItem += ' ' + blockName + '__item--parent';
+          cssClassItem += ' ' + props.baseCss + '__item--parent';
       li(class=cssClassItem)
 
-        a(href=item.url ? item.url : '#', class=blockName + '__link', class=blockName + '__link--lvl' + data.level)
-          if (item.iconID)
-            svg: use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#' + item.iconID)
+        a(href=item.url ? item.url : '#', class=props.baseCss + '__link', class=props.baseCss + '__link--lvl' + level)
           = item.title
 
+          if item.submenu && props.arrow
+            +svg-sprite('arrow-down')(class=props.baseCss + '__arrow')
 
-        if (item.submenu && item.dropdownBtn)
-          button(class=blockName + '__dropdown', class=blockName + '__dropdown--lvl' + data.level)
+        if item.submenu && props.button
+          button(class=props.baseCss + '__dropdown', class=props.baseCss + '__dropdown--lvl' + level)
+            +svg-sprite('arrow-down')
 
-        if (item.submenu)
-          if (item.submenu.submenuWrap)
-            -
-              let cssClassSubmenu = blockName + '__submenu' + ' ' + blockName + '__submenu--lvl' + data.level;
-              if (item.submenu.cssMod)
-                cssClassSubmenu += ' ' + blockName + '__submenu--' + item.submenu.cssMod;
-            div(class=cssClassSubmenu)
-              if (item.banner)
-                div(class=blockName + '__image')
-                  img(src=item.banner, alt="")
-              +menu-list(item.submenu, blockName)
+        if typeof(item.submenu) !== 'undefined' && item.submenu
+          if props.submenuWrap
+            div(class=props.baseCss + '__submenu' + ' ' + props.baseCss + '__submenu--lvl' + level)
+              +menu-list(item.submenu, props, level + 1)
           else
-            if (item.banner)
-              div(class=blockName + '__image')
-                img(src=item.banner, alt="")
-            +menu-list(item.submenu, blockName)
+            +menu-list(item.submenu, props, level + 1)

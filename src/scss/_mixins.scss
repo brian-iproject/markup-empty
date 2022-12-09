@@ -1,6 +1,7 @@
-// Helpers
 @import "mixins/_burger";
 @import "mixins/_form-mixins";
+@import "mixins/_button";
+@import "mixins/_icon";
 
 @mixin list-reset {
 	margin: 0;
@@ -8,22 +9,19 @@
 	list-style: none;
 }
 
-@mixin blocks-margin-vertical {
-	&:not(:first-child) {
-		margin-top: var(--blocks-margin-vertical);
-	}
 
-	&:not(:last-child) {
-		margin-bottom: var(--blocks-margin-vertical);
+@mixin focus-outline {
+	&:focus {
+		outline: 2px solid var(--focus-color);
 	}
 }
 
-@mixin typo-margin-vertical {
+@mixin offset($type: typo) {
 	&:not(:first-child) {
-		margin-top: var(--typo-margin-vertical);
+		margin-top: var(--offset- + $type);
 	}
 
 	&:not(:last-child) {
-		margin-bottom: var(--typo-margin-vertical);
+		margin-bottom: var(--offset- + $type);
 	}
 }

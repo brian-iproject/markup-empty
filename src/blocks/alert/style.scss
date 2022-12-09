@@ -3,16 +3,16 @@
 
 	background-color: hsl(var(--hue), 50%, 90%);
 	border-color: hsl(var(--hue), 50%, 80%);
-	border-radius: .25em;
+	border-radius: var(--border-radius);
 	border-style: solid;
 	border-width: 1px;
 	color: hsl(var(--hue), 50%, 20%);
-	font-size: var(--font-size--medium);
+	font-size: var(--font-size--md);
 	margin: 1.5em 0;
 	padding: .75em 1.25em;
 	position: relative;
 
-	@include blocks-margin-vertical;
+	@include offset(typo);
 
 	&--info {
 		--hue: var(--hue-info);

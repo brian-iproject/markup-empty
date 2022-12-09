@@ -1,0 +1,12 @@
+.faq(itemscope itemtype="https://schema.org/FAQPage")
+	each item, i in faqList
+		details.faq__item(itemscope itemprop="mainEntity" itemtype="https://schema.org/Question")
+			summary.faq__question(itemprop="name")
+				div !{item.question}
+				+button({
+					tag: 'span',
+					mods: ['primary', 'large'],
+					svg: '<svg class="icon icon--lg"><use href="#arrow-down"></use></svg>'
+				})
+			.faq__answer(itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer")
+				div(itemprop="text") !{item.answer}
